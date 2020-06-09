@@ -1,0 +1,151 @@
+---
+title: "Significance testing is misunderstood"
+linktitle: "Misunderstood"
+summary:
+date: 2020-06-09T16:57:03+01:00
+lastmod: 2020-06-09T16:57:03+01:00
+draft: false  
+type: docs  # Do not modify.
+bibliography: "`r here::here('assets/bib/bibfile.bib')`"
+csl: "`r here::here('assets/bib/apa.csl')`"
+menu:
+  significance:
+    parent: Human factors
+    weight: 1
+output:
+  blogdown::html_page:
+    toc: true
+    toc_depth: 2
+---
+
+## Outline of the objection
+
+
+In spite of significance tests being ubiquitous in the sciences, many users of significance tests have a difficult time understanding them. Take, for example, the survey results reported by @Oakes:1986. Oakes asked 70 academic psychologists the following (p. 79):
+
+
+> Suppose you have a treatment which you suspect may alter performance on a certain task. You compare the means of your control group and experimental groups (say 20 subjects in each sample). Further, suppose you use a simple independent means t test and your result is ($t=2.7, d.f.=18, p=0.01$)[.] Please mark each of the statements below as ‘true’ or ‘false’.
+> 
+> 1. You have absolutely disproved the null hypothesis (that there is no difference between the population means).
+> 2. You have found the probability of the null hypothesis being true.
+> 3. You have absolutely proved your experimental hypothesis (that there is a difference between the population means).
+> 4. You can deduce the probability of the experimental hypothesis being true.
+> 5. You know, if you decided to reject the null hypothesis, the probability that you are making the wrong decision.
+> 6. You have a reliable experimental finding in the sense that if, hypothetically,  the experiment were repeated a great number of times, you would obtain a significant result on 99% of occasions.
+
+The responses given by the lecturers, researchers and post-graduate students are presented in the following table. $f$ represents the frequency at which respondents affirmed the corresponding statement as true.
+
+```{r echo=FALSE,message=FALSE}
+
+library(dplyr)
+library(gt)
+
+n = 70
+
+statements = c(
+"The null hypothesis is absolutely disproved", 
+"The probability of the null hypothesis has been found",
+"The experimental hypothesis is absolutely proved", 
+"The probability of the experimental hypothesis can be deduced", 
+"The probability that the decision taken is wrong is known",
+"Replications have a 0.99 probability of being significant"
+)
+
+freq = c( 1, 25, 4, 46, 60, 42 )
+
+oakes_data = tibble(N = glue::glue("({1:6})"),
+                    s = statements,
+                    f = freq,
+                    p = f / n * 100)
+
+gt(oakes_data) %>%
+  cols_label(
+    N = "",
+    s = "Statement",
+    f = htmltools::HTML("$f$"),
+    p = "%") %>%
+  fmt_number(columns = "p", decimals = 1) %>%
+  fmt_number(columns = "f", decimals = 0) %>%
+  tab_header(subtitle = "Oakes (1986), p. 80, Table 3.2.1.", 
+             title = "Frequencies of ‘true’ responses")
+
+```
+
+
+The frequency of affirmation ranges from 1 to 60 out of 70. In truth, each of these statements is incorrect. Three of the 70 respondents (4%) correctly rejected all of the six false statements. For an explanation of why each of these are incorrect, see @Gigerenzer:etal:2004.
+
+@Falk:Greenbaum:1995 showed similar results among a student population even when those students were asked to read a paper focusing on the fallacies; @Haller:Krauss:2002 followed up with a similar survey specifically including working scientists, teachers of statistical methods, and students of statistics. As Haller and Krauss point out, misconceptions exist even in textbooks explaining significance testing.
+
+Some common fallacies about significance tests include:
+
+* *"The $p$ value represents the probability that the null hypothesis is true."* (see also statements 2 and 4 above) The $p$ value is the probability of obtaining evidence at least as discordant with the null hypothesis, assuming the null hypothesis were true. The probability is about the data, not the hypothesis.
+* *"The $p$ value represents the probability that you’d be wrong if you decided that the null hypothesis were false."* (see also statement 5 above) The $p$ value is an error probability, but only a) assuming the null hypothesis were true, and b) assuming you decided to take the strength of the evidence at hand as just decisive evidence against the null. It is a hypothetical error probability describing a decision procedure, not the probability that any given decision is in error.
+* *"A low $p$ value means that the observed effect size is large, or that the result is important."* For a given sample size, it is true that lower p values mean larger observed deviations from the null hypothesis (whatever it is), but small $p$ values coupled with large sample sizes may indicate small deviations from the null hypothesis that would be nevertheless be rare if the null hypothesis were true. Relatedly, a low $p$ does not indicate anything, by itself, about the importance of a result.
+* *"The null hypothesis can be accepted as true on the basis of a large $p$ value."* A large $p$ value indicates only that evidence against the null hypothesis as strong as what was found would not be unsurprising even if the null hypothesis were true. This would obviously be the case if, for instance, we had not tried very hard to find evidence against it. Just because the evidence doesn't contradict a hypothesis does not mean that the hypothesis has solid evidence for it.
+
+@Greenland:etal:2016 present 25 misunderstandings related to significance testing and explain why each one is a fallacy.
+
+Critics have also pointed to that judgments about research results are qualitatively different when they cross an arbitrary threshold like p<.05. This so-called "cliff effect", first described by @Rosenthal:Gaito:1963 and since replicated many times, has been taken as evidence that people impose a needlessly dichotomous interpretation on p values caused by the "statistical significance" below the threshold. Relatedly, @McShane:Gal:2017 show that statisticians are sensitive to statistical significance of a result even when it is inappropriate for the judgment at hand.
+
+The sensitivity to statistical significance has caused many commentators to call replacing significance tests with confidence interval, likelihood, or Bayesian approaches. @Fidler:Loftus:2009 suggest that figures with means and error bars and/or confidence intervals should replace p values because "they lend themselves readily (in most cases) to graphical representation" and "do not necessarily entail a dichotomous decision".
+
+The dichotomization of evidence is closely related to another common fallacy of significance testing: the fallacy of "accepting" the null hypothesis on the basis of a high $p$ value. When $p$ is greater than the typical threshold of .05, researchers often opportunistically claim that a null hypothesis is true — rather than a failure to find strong evidence against it — even in case it has not been adequately tested (e.g., assessing the evidence for important assumptions with small sample sizes). The fallacy of acceptance is related the higher-order fallacy of believing that when one effect is significant and another is not, that there is evidence of a difference in the sizes of the effects. As @Gelman:Stern:2006 put it, the difference between "significant" and "not significant" is not itself statistically significant. @Nieuwenhuis:etal:2011 found the issue widespread in the neuroscience literature.
+
+Amusingly, [Aschwanden (2015)](https://fivethirtyeight.com/features/not-even-scientists-can-easily-explain-p-values/) asked researchers at a methods conference do explain p values, concluding that ["Not even scientists can easily explain $P$-values". Aschwanden ascribed the problem to the difficulty of the concepts underlying significance testing.
+
+All of these these difficulties have led some to critique the use of significance testing itself. @Cumming:2014, for instance, says that such evidence "suggests that we should use estimation [e.g. confidence intervals] and avoid [null hypothesis significance testing]" and that significance testing "deludes us into thinking that any finding that meets the criterion of statistical significance is true and does not require replication."
+
+Some journal editors have used the researchers' apparent misunderstandings to discourage or ban reports of statistical significance tests. @Lang:etal:1998, editors of the journal Epidemiology, write that "we intend to discourage the reporting of $P$-values in any context in which the confounded elements [effect size and precision] can be conveniently separated, either numerically, graphically, or otherwise" (p. 8).
+
+## Potential answers to the objection
+
+
+### Answer 1
+
+*Just because people find something difficult does not mean there is a problem with it or that it should be abandoned.* If we applied this objection to significance testing to other things, we would end up without many essential scientific tools. Take, for instance, logic: several highly-replicable results in cognitive psychology show that people have difficulties reasoning logically, at least in the abstract. @Wason:1966 famously showed that people had great difficulty with his [card selection task](https://en.wikipedia.org/wiki/Wason_selection_task), which requires deductive reasoning. This does not make deductive reasoning any less valuable. Certainly we should not ask people to abandon deductive reasoning on this basis.
+
+Likewise, probability itself is difficult for people to understand. Teachers of probability who introduce people to the [Monty Hall problem](https://en.wikipedia.org/wiki/Monty_Hall_problem) know that even when shown the correct solution, many refuse to believe it. Probability may be a difficult topic, but abandoning probability reasoning would be a disaster for science.
+
+Reasoning from $p$ values is, in fact, nothing more than reasoning about sampling distributions; abandoning $p$ values would be tantamount to abandoning reasoning from sampling distributions. If sampling distributions are an important concept to understand and use, then perhaps we should think about $p$ values like deductive reasoning and probability: yes, people have problems reasoning deductively and with probabilities. This makes the training of deductive reasoning and probability in science *even more* important, not less.
+
+One could object that significance testing logic is itself flawed and not essential for scientific reasoning. If significance testing is flawed, then the objection that people have difficulty with significance testing is redundant. If significance testing is not flawed---and *particularly* if the underlying principle of evidence is important to science, as some argue---then the objection is impotent. Either way, the objection fails.
+
+
+### Answer 2
+
+*Misinterpretations and dichotomisation are not inherent to the logic of significance testing; the paradigm actually tells you the fallacies are problematic.*
+
+
+### Answer 3
+
+*The actual import of the misunderstandings is unclear.*
+
+Misinterpretations may (in part) be driven by how they are probed; not clear how much effect they have in a research program
+
+Misunderstandings involve explicit knowledge in abstract scenarios; often it is unclear how this actually plays out in research scenarios.
+
+(but note that sometimes it is clear, when they actually change research conclusions)
+
+### Answer 4
+
+*Unclear that other approaches would be better, and certainly they do not have the same theoretical grounding.*
+
+
+### Answer 5
+
+*Evidence for dichotomisation (in particular, cliff effect) often depends on a normative assumption; but what is it?*
+
+
+### Answer 6
+
+Upton Sinclair said that "[i]t is difficult to get a man to understand something, when his salary depends on his not understanding it." Misunderstandings of significance testing appear opportunistic: researchers do not always dichotomise evidence or make fall into the fallacy of acceptance. If it suits them, they can often be quite nuanced about the interpretation of $p$ values. The concept of "marginal significance" is convenient when $p$ values do not quite reach typical thresholds and a researcher wants to show evidence for a particular effect.
+
+This suggests that what is going wrong is not statistical significance *per se*, but rather opportunism potentially driven by incentives among scientists. Fallacies can be convenient. If one is faced with a mediocre $p$ value obtained with a small sample size, it is more convenient to fall into the fallacy of acceptance than to actually apply the logic of significance testing, which may tell you the evidence is modest and strong conclusions can't be reached. As mentioned above, the logic of significance testing can actually tell you *why* this is a problem: unchecked opportunism makes it easy to find evidence for claims even when they are not true.
+
+
+### Answer 7
+
+*Fallacies are presented in textbooks by choice, because they are easier.* Pressures exist on those training students beyond just getting it right. One can hardly blame significance testing.
+
+
+## References 

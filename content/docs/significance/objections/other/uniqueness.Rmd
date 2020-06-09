@@ -1,0 +1,19 @@
+---
+title: "Significance tests are not unique"
+linktitle: uniqueness
+summary:
+date: 2020-06-09T16:57:03+01:00
+lastmod: 2020-06-09T16:57:03+01:00
+draft: false  
+toc: false
+type: docs  # Do not modify.
+menu:
+  significance:
+    parent: Other
+    weight: 1
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+For some parameter/problem there can be several tests. Significance testing is not a unified approach.

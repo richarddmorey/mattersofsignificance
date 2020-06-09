@@ -1,0 +1,19 @@
+---
+title: "Ignoring effect sizes"
+linktitle: "Effect sizes"
+summary:
+date: 2020-06-09T16:57:03+01:00
+lastmod: 2020-06-09T16:57:03+01:00
+draft: false  
+toc: false
+type: docs  # Do not modify.
+menu:
+  significance:
+    parent: Human factors
+    weight: 1
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+Significance tests ignore effect sizes.

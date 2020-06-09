@@ -1,0 +1,43 @@
+---
+date: "2018-09-09T00:00:00Z"
+draft: false
+lastmod: "2018-09-09T00:00:00Z"
+linktitle: Bayesian
+menu:
+  significance:
+    parent: Objections
+    name: Bayesian
+    weight: 1
+summary: Learn how to use Academic's docs layout for publishing online courses, software
+  documentation, and tutorials.
+title: "Bayesian objections"
+type: docs
+weight: 1
+output:
+  blogdown::html_page:
+    toc: false
+---
+
+## Bayesian objections
+
+```{r echo = FALSE, results = 'asis'}
+rmd_files = dir(pattern="^[^_].*\\.Rmd")
+
+sapply(rmd_files, function(fn){
+  yaml = rmarkdown::yaml_front_matter(fn)
+  title = yaml$title
+  menu = unlist(yaml$menu)
+  menu_item = grepl(x = names(menu), pattern = "\\.weight$")
+  weight = menu[menu_item][[1]]
+  c(title = title, weight = as.numeric(weight))
+}) -> info
+
+rmd_files = basename(rmd_files)
+rmd_names = tools::file_path_sans_ext(rmd_files)
+rmd_names = rmd_names[order(as.numeric(info["weight",]))]
+titles    = info["title", order(as.numeric(info["weight",]))]
+
+glue::glue("[{titles}]({rmd_names})\n\n")
+
+```
+
