@@ -9,7 +9,7 @@ toc: false
 type: docs  # Do not modify.
 menu:
   significance:
-    parent: other
+    parent: Other
     weight: 1
 output:
   blogdown::html_page:
