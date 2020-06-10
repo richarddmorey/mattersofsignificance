@@ -30,7 +30,7 @@ editor_options:
 
 ### Answers to critiques
 
-* Unknown (2018). [Objections to frequentism](http://www.statisticool.com/objectionstofrequentism.htm)
+* Smith (2018). [Objections to frequentism](http://www.statisticool.com/objectionstofrequentism.htm)
 * Mayo (2011-present). [Error Statistics Philosophy](https://errorstatistics.com/)
 
 ## Published, peer-reviewed articles
