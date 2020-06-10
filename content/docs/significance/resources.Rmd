@@ -1,0 +1,66 @@
+---
+title: "Informational resources"
+linktitle: "Resources"
+summary:
+date: 2020-06-09T16:57:03+01:00
+lastmod: 2020-06-09T16:57:03+01:00
+draft: false  
+type: docs  # Do not modify.
+menu:
+  significance:
+    parent: General
+    weight: 0.5
+output:
+  blogdown::html_page:
+    toc: true
+    toc_depth: 2
+    dev: svg
+editor_options: 
+  chunk_output_type: console
+---
+
+
+## Open, online resources
+
+### Critiques
+
+* Coe (1998). [Criticisms of significance testing](https://community.dur.ac.uk/r.j.coe/teaching/critsig.htm)
+* Briggs (2013). [Everything Wrong With P-Values Under One Roof](http://wmbriggs.com/post/9338/)
+* Harrell (2018). [A Litany of Problems with p-values](http://www.fharrell.com/post/pval-litany/)
+
+### Answers to critiques
+
+* Unknown (2018). [Objections to frequentism](http://www.statisticool.com/objectionstofrequentism.htm)
+* Mayo (2011-present). [Error Statistics Philosophy](https://errorstatistics.com/)
+
+## Published, peer-reviewed articles
+
+### Informational
+
+* Mayo, Deborah G.; Cox, D. R. [Frequentist statistics as a theory of inductive inference](https://projecteuclid.org/euclid.lnms/1196283956). *Optimality*, 77-97, Institute of Mathematical Statistics, Beachwood, Ohio, USA, 2006.
+
+### Critiques
+
+* Edwards, W., Lindman, H., & Savage, L. J. (1963). [Bayesian statistical inference for psychological research](http://psycnet.apa.org/buy/1964-00040-001). *Psychological review*, 70(3), 193-242.
+
+### Answers to critiques
+
+* Senn, S. (2001). [Two cheers for P-values?](https://www.ncbi.nlm.nih.gov/pubmed/11434499) *Journal of epidemiology and biostatistics*, 6 2, 193-204; discussion 205-10.
+
+## Books
+
+
+### Critiques
+
+* Ziliak, S.T., & McCloskey, D.N. (2008). [The Cult of Statistical Significance](https://www.press.umich.edu/186351/cult_of_statistical_significance). University of Michigan Press
+
+### Answers to critiques
+
+* Mayo (2018). [Statistical Inference as Severe Testing: How to Get Beyond the Statistics Wars](https://www.cambridge.org/core/books/statistical-inference-as-severe-testing/D9DF409EF568090F3F60407FF2B973B2). Cambridge University Press
+
+## Teaching texts
+
+### Advocating alternatives
+
+### Well-described significance testing
+
