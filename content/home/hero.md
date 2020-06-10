@@ -21,7 +21,7 @@ hero_media = "MoS_logo_medium.png"
   
   # Background gradient.
   gradient_start = "#9a7aa0"
-  gradient_end = "#87677b"
+  gradient_end = "#eeeeee"
   
   # Background image.
   # image = ""  # Name of image in `static/img/`.
