@@ -76,7 +76,7 @@ If $B$ has 0 probability, then the denominator of the right hand side is 0 and t
 
 > "If you reject $H_0$, you're saying that $H_0$ has probability 0, and hence $Pr(T\geq t\mid H_0)$ has no any meaning. But if it has no meaning, how did you use it in the first place?"
 
-To a Bayesian, it may appear that the significance tester started claiming $Pr(H_0)=1$ (that is, $H_0$ was "assumed") and arrived at $Pr(H_0)=0$ (it was rejected). This would indeed be absurd, if *that* were the reasoning. However, this would be based on a Bayesian misunderstanding of frequentist logic.
+To a Bayesian, it may appear that the significance tester started claiming $Pr(H_0)=1$ (that is, $H_0$ was "assumed") and arrived at $Pr(H_0)=0$ (it was rejected). This would indeed be absurd, if *that* were significance testing reasoning. It is not; it is instead a Bayesian misunderstanding of frequentist reasoning.
 
 See [Answer 1 to the "Reversed conditional"](/docs/significance/objections/bayesian/inverse_prob/#ans1) critique for an explanation of *why* this is a misunderstanding.
 
