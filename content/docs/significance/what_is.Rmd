@@ -37,7 +37,7 @@ This example has the crucial elements of significance testing logic:
 
 * A hypothesis to be tested (*This patient is not allergic to dust mites*)
 * An observation carrying the evidence (*irritation; more irritation means more evidence against the hypothesis*)
-* An expectation assuming the hypothesis is true (*The skin will not get very irritated*)
+* An expectation assuming the hypothesis is true (*The skin will not get much more irritated than with the neutral glycerin*)
 * Willingness to reject the hypothesis as untenable if the observation is too inconsistent with the hypothesis (*This person has an allergy to dust mites*)
 
 When we do a statistical significance test, however, there's a bit more to it. We generally have model of variability due to sampling or some other random process, which is lacking in the above example. We can take a look at the above
