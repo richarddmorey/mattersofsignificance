@@ -29,7 +29,7 @@ One of the oddest critiques of significance testing is due prominent from physic
 As far as I can tell, there are two readings of this critique:
 
 1. Under the first reading, the critique is essentially an equivocation over the idea of an "assumption" in statistics.
-2. Under the second reading, the critique is about the impossibility of conditioning on a zero probability event.
+2. Under the second reading, the critique is about the difficulty of conditioning on a zero probability event.
 
 ### Answer 1
 
