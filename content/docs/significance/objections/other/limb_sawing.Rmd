@@ -56,7 +56,7 @@ As Mayo points out, rejecting the child's  claim that someone broke into the hou
 
 ### Answer 2
 
-A somewhat more charitable reading of Jayne's argument involves conditioning in the [probabilistic](https://en.wikipedia.org/wiki/Conditioning_(probability)) sense (as opposed to the [counterfactual](https://en.wikipedia.org/wiki/Counterfactual_conditional) or [material conditional](https://en.wikipedia.org/wiki/Material_conditional)). Notice that Jaynes suggests if we reject $H_0$, we must "reject probabilities conditional on $H_0$." 
+A somewhat subtler reading of Jayne's argument involves conditioning in the [probabilistic](https://en.wikipedia.org/wiki/Conditioning_(probability)) sense (as opposed to the [counterfactual](https://en.wikipedia.org/wiki/Counterfactual_conditional) or [material conditional](https://en.wikipedia.org/wiki/Material_conditional)). Notice that Jaynes suggests if we reject $H_0$, we must "reject probabilities conditional on $H_0$." 
 
 It is possible that he is falling into a common (but subtle) fallacy about significance testing by incorrectly believing that probabilities under the null hypothesis are *probabilistically conditioned on the null*. This is not correct, as Larry Wasserman [points out](https://normaldeviate.wordpress.com/2013/03/14/double-misunderstandings-about-p-values/). A frequentist cannot condition on something hat is not random, so the $p$ value is not "conditioned," in the probabilistic sense, on $H_0$. Rather, as Mayo points out, the probabilities are deductions [see also @Neyman:1957].
 
