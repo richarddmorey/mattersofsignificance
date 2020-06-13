@@ -5,7 +5,6 @@ summary:
 date: 2020-06-09T16:57:03+01:00
 lastmod: 2020-06-09T16:57:03+01:00
 draft: false  
-toc: false
 type: docs  # Do not modify.
 menu:
   significance:
@@ -14,7 +13,51 @@ menu:
 output:
   blogdown::html_page:
     toc: true
+bibliography: "`r here::here('assets/bib/bibfile.bib')`"
+csl: "`r here::here('assets/bib/apa.csl')`"
 ---
 
-The $p$ value is the probability of the data (or more extreme) under a hypothesis; what people "want" is the probability of the hypothesis given the data.
+## Outline of the critique
+
+The $p$ value is the probability of the data (or more extreme) given a hypothesis; what people *want* (or what we *should calculate*) is the probability of the hypothesis given the data.
+
+In his well-known paper "The earth is round ($p<.05$), @Cohen:1994 expresses this critique:
+
+> "What's wrong with NHST? Well, among many other things, it does not tell us what we want to know, and we so much want to know what we want to know that, out of desperation, we nevertheless believe that it does! what we want to know is 'Given these data, what is the probability that $H_0$ is true?' But as most of us know, what it tells us is 'Given that $H_0$ is true, what is the probability of these (or more extreme) data?' These are not the same, as has been pointed out many times over the years..." [@Cohen:1994, 997]
+
+He continues later:
+
+> "When one tests $H_0$, one is finding the probability that the data ($D$) could have arisen if $H_0$ were true. $P(D\mid H_0)$. If that probability is small, then it can be concluded that if $H_0$ is true, then $D$ is unlikely. Now, what really is at issue, what is always the real issue, is the probability that $H_0$ is true, given the data, $P(H_0\mid D)$, the inverse probability." (p. 998)
+
+Cohen then explains how to obtain the inverse probability by appeal to Bayes' theorem.
+
+## Potential answers to the critique
+
+
+### Answer 1 {#ans1}
+
+Simply put, this critique assumes something not true: that the $p$ value is a conditional probability, and can be "reversed". As [Larry Wasserman points out](https://normaldeviate.wordpress.com/2013/03/14/double-misunderstandings-about-p-values/), this is a common (Bayesian) misunderstanding of significance testing:
+
+> When we use p-values we are in frequentist-land. $H_0$ (the null hypothesis) is not a random variable. It makes no sense to talk about the posterior probability of $H_0$. But it also makes no sense to talk about conditioning on $H_0$. You can only condition on things that were random in the first place.
+
+Writing the $p$ value more clearly, with a semicolon replacing the conditional stroke,
+
+\[
+Pr(T\geq t; H_0)
+\]
+
+or with a subscript on the probability distribution (as [Wasserman suggests](https://normaldeviate.wordpress.com/2013/03/14/double-misunderstandings-about-p-values/)),
+
+\[
+p_0(T\geq t)
+\]
+
+prevents the fallacy. The proper statement is not a conditional probability, so you cannot apply Bayes' theorem or imply that the existence of some quantity $Pr(H_0)$ is implied.
+
+To be fair, this fallacy was encouraged by loose notation in the early-to-mid twentieth century; @Neyman:1957 uses a vertical stroke in statement of frequentist probabilities, and obviously did not intend to imply that they were conditional in the probabilistic sense.
+
+*[R. D. Morey, June 2020]*
+
+## References
+
 

@@ -5,7 +5,6 @@ summary:
 date: 2020-06-09T16:57:03+01:00
 lastmod: 2020-06-09T16:57:03+01:00
 draft: false  
-toc: false
 type: docs  # Do not modify.
 menu:
   significance:
@@ -14,9 +13,65 @@ menu:
 output:
   blogdown::html_page:
     toc: true
+bibliography: "/Users/richard/Documents/Projects/mattersofsignificance/assets/bib/bibfile.bib"
+csl: "/Users/richard/Documents/Projects/mattersofsignificance/assets/bib/apa.csl"
 ---
 
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
+<div id="TOC">
+<ul>
+<li><a href="#outline-of-the-critique">Outline of the critique</a></li>
+<li><a href="#potential-answers-to-the-critique">Potential answers to the critique</a>
+<ul>
+<li><a href="#ans1">Answer 1</a></li>
+</ul></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
 
-<p>The <span class="math inline">\(p\)</span> value is the probability of the data (or more extreme) under a hypothesis; what people “want” is the probability of the hypothesis given the data.</p>
+<div id="outline-of-the-critique" class="section level2">
+<h2>Outline of the critique</h2>
+<p>The <span class="math inline">\(p\)</span> value is the probability of the data (or more extreme) given a hypothesis; what people <em>want</em> (or what we <em>should calculate</em>) is the probability of the hypothesis given the data.</p>
+<p>In his well-known paper "The earth is round (<span class="math inline">\(p&lt;.05\)</span>), <span class="citation">Cohen (1994)</span> expresses this critique:</p>
+<blockquote>
+<p>“What’s wrong with NHST? Well, among many other things, it does not tell us what we want to know, and we so much want to know what we want to know that, out of desperation, we nevertheless believe that it does! what we want to know is ‘Given these data, what is the probability that <span class="math inline">\(H_0\)</span> is true?’ But as most of us know, what it tells us is ‘Given that <span class="math inline">\(H_0\)</span> is true, what is the probability of these (or more extreme) data?’ These are not the same, as has been pointed out many times over the years…” <span class="citation">(Cohen, 1994, p. 997)</span></p>
+</blockquote>
+<p>He continues later:</p>
+<blockquote>
+<p>“When one tests <span class="math inline">\(H_0\)</span>, one is finding the probability that the data (<span class="math inline">\(D\)</span>) could have arisen if <span class="math inline">\(H_0\)</span> were true. <span class="math inline">\(P(D\mid H_0)\)</span>. If that probability is small, then it can be concluded that if <span class="math inline">\(H_0\)</span> is true, then <span class="math inline">\(D\)</span> is unlikely. Now, what really is at issue, what is always the real issue, is the probability that <span class="math inline">\(H_0\)</span> is true, given the data, <span class="math inline">\(P(H_0\mid D)\)</span>, the inverse probability.” (p. 998)</p>
+</blockquote>
+<p>Cohen then explains how to obtain the inverse probability by appeal to Bayes’ theorem.</p>
+</div>
+<div id="potential-answers-to-the-critique" class="section level2">
+<h2>Potential answers to the critique</h2>
+<div id="ans1" class="section level3">
+<h3>Answer 1</h3>
+<p>Simply put, this critique assumes something not true: that the <span class="math inline">\(p\)</span> value is a conditional probability, and can be “reversed”. As <a href="https://normaldeviate.wordpress.com/2013/03/14/double-misunderstandings-about-p-values/">Larry Wasserman points out</a>, this is a common (Bayesian) misunderstanding of significance testing:</p>
+<blockquote>
+<p>When we use p-values we are in frequentist-land. <span class="math inline">\(H_0\)</span> (the null hypothesis) is not a random variable. It makes no sense to talk about the posterior probability of <span class="math inline">\(H_0\)</span>. But it also makes no sense to talk about conditioning on <span class="math inline">\(H_0\)</span>. You can only condition on things that were random in the first place.</p>
+</blockquote>
+<p>Writing the <span class="math inline">\(p\)</span> value more clearly, with a semicolon replacing the conditional stroke,</p>
+<p><span class="math display">\[
+Pr(T\geq t; H_0)
+\]</span></p>
+<p>or with a subscript on the probability distribution (as <a href="https://normaldeviate.wordpress.com/2013/03/14/double-misunderstandings-about-p-values/">Wasserman suggests</a>),</p>
+<p><span class="math display">\[
+p_0(T\geq t)
+\]</span></p>
+<p>prevents the fallacy. The proper statement is not a conditional probability, so you cannot apply Bayes’ theorem or imply that the existence of some quantity <span class="math inline">\(Pr(H_0)\)</span> is implied.</p>
+<p>To be fair, this fallacy was encouraged by loose notation in the early-to-mid twentieth century; <span class="citation">Neyman (1957)</span> uses a vertical stroke in statement of frequentist probabilities, and obviously did not intend to imply that they were conditional in the probabilistic sense.</p>
+<p><em>[R. D. Morey, June 2020]</em></p>
+</div>
+</div>
+<div id="references" class="section level2 unnumbered">
+<h2>References</h2>
+<div id="refs" class="references hanging-indent">
+<div id="ref-Cohen:1994">
+<p>Cohen, J. (1994). The earth is round (<span class="math inline">\(p&lt;.05\)</span>). <em>American Psychologist</em>, <em>49</em>, 997–1003.</p>
+</div>
+<div id="ref-Neyman:1957">
+<p>Neyman, J. (1957). “Inductive behavior” as a basic concept of philosophy of science. <em>Review of the International Statistical Institute</em>, <em>25</em>, 7–22. Retrieved from <a href="http://dx.doi.org/10.2307/1401671">http://dx.doi.org/10.2307/1401671</a></p>
+</div>
+</div>
+</div>

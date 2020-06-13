@@ -5,7 +5,6 @@ summary:
 date: 2020-06-09T16:57:03+01:00
 lastmod: 2020-06-09T16:57:03+01:00
 draft: false  
-toc: false
 type: docs  # Do not modify.
 menu:
   significance:
@@ -14,6 +13,73 @@ menu:
 output:
   blogdown::html_page:
     toc: true
+bibliography: "`r here::here('assets/bib/bibfile.bib')`"
+csl: "`r here::here('assets/bib/apa.csl')`"
 ---
 
-Significance tests can both assume and reject the same hypothesis
+## Outline of the critique
+
+One of the oddest critiques of significance testing is due prominent from physicist and objective Bayesian E.T. Jaynes, in his book on probability theory. According to his critique, the "rejection" of the null hypothesis in a significance test *also* entails the rejection of the assumptions underlying the null hypothesis, rendering the whole argument impossible and contradictory: "saw[ing] off its own limb":
+
+> "In order [for a significance tester] to argue for an hypothesis $H_1$ that some effect exists, one does it indirectly: invent a 'null hypothesis' $H_0$ that denies any such effect, then argue against $H_0$ in a way that makes no reference to $H_1$ at all (that is, using only probabilities conditional on $H_0$)! To see how far this procedure takes us from elementary logic, suppose we decide that the effect exists; that is, we reject $H_0$. Surely, we must also reject probabilities conditional on $H_0$; but then what was the logical justification for the decision? Orthodox logic saws off its own limb." [@Jaynes:2003, 1712]
+
+
+## Potential answers to the critique
+
+As far as I can tell, there are two readings of this critique:
+
+1. Under the first reading, the critique is essentially an equivocation over the idea of an "assumption" in statistics.
+2. Under the second reading, the critique is about the impossibility of conditioning on a zero probability event.
+
+### Answer 1
+
+
+@Mayo:2018 responds to the first reading of the critique:
+
+> "The assumption we use in testing a hypothesis H, statistical or other, is an *implicationary* or *i-assumption*. We have a conditional, say: If $H$ then expect $\boldsymbol{x}$, with $H$ the antecedent. The entailment from $H$ to $\boldsymbol{x}$, whether it is statistical or deductive, does not get sawed off after the hypothesis or model $H$ is rejected when the prediction is not borne out." [@Mayo:2018, 167]
+
+To see how strange Jaynes' argument is (at least under the first reading), note that if we accept Jaynes' critique we would make [reductio ad absurdum](https://en.wikipedia.org/wiki/Reductio_ad_absurdum) impossible, and with it, proof by contradiction. 
+
+An essential part of *testing* an idea (in the general, not just the statistical sense) is to understand its implications, or logical consequences. 
+
+Consider a confronting a child about an empty cookie jar.
+
+"This cookie jar is empty," you say, "but it had four cookies in it before I left the room two minutes ago." 
+
+The child---chocolate around the sides of her mouth---claims that a man broke into the house through the window, took the cookies, and ran away.
+
+"Suppose that were true," you answer. "Wouldn't there be glass on the floor? And how would you have gotten chocolate on your face?" 
+
+At no point do you *believe* the child's story. When you say you are *supposing* (or *assuming*) the child's story is true, you are simply asking for an assessment of what the claim entails, in order to compare that to known facts: there would be glass on the floor (but there isn't); she would not have chocolate on her face (but she does); you would have heard noise (but you didn't); there would have to be people roaming the neighborhood willing to break and enter homes to steal a few cookies (there aren't).
+
+As Mayo points out, rejecting th child's  claim that someone broke into the house does not, in any sense, affect the *implications* of the child's claim. It is these implications that allow testing the claim and potentially rejecting it.
+
+### Answer 2
+
+A somewhat more charitable reading of Jayne's argument involves conditioning in the [probabilistic](https://en.wikipedia.org/wiki/Conditioning_(probability)) sense (as opposed to the [counterfactual](https://en.wikipedia.org/wiki/Counterfactual_conditional) or [material conditional](https://en.wikipedia.org/wiki/Material_conditional)). Notice that Jaynes suggests if we reject $H_0$, we must "reject probabilities conditional on $H_0$." 
+
+It is possible that he is falling into a common (but subtle) fallacy about significance testing by incorrectly believing that probabilities under the null hypothesis are *probabilistically conditioned on the null*. This is not correct, as Larry Wasserman [points out](https://normaldeviate.wordpress.com/2013/03/14/double-misunderstandings-about-p-values/). A frequentist cannot condition on something hat is not random, so the $p$ value is not "conditioned," in the probabilistic sense, on $H_0$. Rather, as Mayo points out, the probabilities are deductions [see also @Neyman:1957].
+
+But suppose that, as a Bayesian, Jaynes has in mind a valid *Bayesian* probability statement, like that the $p$ value can be defined as
+
+\[
+Pr(T\geq t\mid H_0)
+\]
+
+where $T$ is a test statistic and $t$ is the observed value of the test statistic. In probability, serious problems arise when one conditions on a zero probability event. Recall that conditional probability is defined as 
+
+\[
+Pr(A\mid B) = \frac{Pr(A,B)}{Pr(B)}
+\]
+
+If $B$ has 0 probability, then the denominator of the right hand side is 0 and the conditional probability is undefined. We might interpret Jaynes' critique as 
+
+> "If you reject $H_0$, you're saying that $H_0$ has probability 0, and hence $Pr(T\geq t\mid H_0)$ has no any meaning. But if it has no meaning, how did you use it in the first place?"
+
+To a Bayesian, it may appear that the significance tester started claiming $Pr(H_0)=1$ (that is, $H_0$ was "assumed") and arrived at $Pr(H_0)=0$ (it was rejected). This would indeed be absurd, if *that* were the reasoning. However, this would be based on a Bayesian misunderstanding of frequentist logic.
+
+See [Answer 1 to the "Reversed conditional"](/docs/significance/objections/bayesian/inverse_prob/#ans1) critique for an explanation of *why* this is a misunderstanding.
+
+*[R. D. Morey, June 2020]*
+
+## References

@@ -148,4 +148,6 @@ This suggests that what is going wrong is not statistical significance *per se*,
 *Fallacies are presented in textbooks by choice, because they are easier.* Pressures exist on those training students beyond just getting it right. One can hardly blame significance testing.
 
 
+*[R. D. Morey, October 2018]*
+
 ## References 
